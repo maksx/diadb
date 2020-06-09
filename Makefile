@@ -1,12 +1,12 @@
 PROJECT_NAME ?= diadb
-VERSION = $(shell python3 setup.py --version | tr '+' '-')
+VERSION = $(shell python3.8 setup.py --version | tr '+' '-')
 PROJECT_NAMESPACE ?= maksx
 REGISTRY_IMAGE ?= $(PROJECT_NAMESPACE)/$(PROJECT_NAME)
 POSTGRES_USER ?= user
 POSTGRES_PASSWORD ?= password
 POSTGRES_DB ?= diadb
 SUBDIRS = diadb
-DIRS = . $(shell find $(SUBDIRS) -type d -maxdepth 1)
+DIRS = . $(shell find $(SUBDIRS) -maxdepth 1 -type d)
 GARBAGE_PATTERNS = *.egg-info __pycache__
 GARBAGE = $(foreach DIR,$(DIRS),$(addprefix $(DIR)/,$(GARBAGE_PATTERNS)))
 
@@ -25,22 +25,22 @@ clean:
 
 devenv: clean
 	rm -rf venv
-	python3 -m venv venv
-	env/bin/pip install -Ue '.[dev]'
+	python3.8 -m venv venv
+	venv/bin/pip install -Ue '.[dev]'
 
 lint:
 	venv/bin/pylama
 
 postgres:
-	docker stop analyzer-postgres || true
-	docker run --rm --detach --name=analyzer-postgres \
+	docker stop diadb-postgres || true
+	docker run --rm --detach --name=diadb-postgres \
 		--env POSTGRES_USER=$(POSTGRES_USER) \
 		--env POSTGRES_PASSWORD=$(POSTGRES_PASSWORD) \
 		--env POSTGRES_DB=$(POSTGRES_DB) \
-		--publish 5432:5432 postgres
+		--publish 5432:5432 postgres:12.3
 
 test: lint postgres
-	env/bin/pytest -vv --cov=analyzer --cov-report=term-missing tests
+	venv/bin/pytest -vv --cov=diadb --cov-report=term-missing tests
 
 docker:
 	docker build --target=api -t $(PROJECT_NAME):$(VERSION) .
