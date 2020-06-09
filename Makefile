@@ -6,7 +6,7 @@ POSTGRES_USER ?= user
 POSTGRES_PASSWORD ?= password
 POSTGRES_DB ?= diadb
 SUBDIRS = diadb
-DIRS = . $(shell find $(SUBDIRS) -type d)
+DIRS = . $(shell find $(SUBDIRS) -type d -maxdepth 1)
 GARBAGE_PATTERNS = *.egg-info __pycache__
 GARBAGE = $(foreach DIR,$(DIRS),$(addprefix $(DIR)/,$(GARBAGE_PATTERNS)))
 
