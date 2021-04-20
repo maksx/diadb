@@ -4,33 +4,74 @@
 #
 #    pip-compile --no-emit-index-url --output-file=requirements/requirements.txt requirements/requirements.in
 #
-aiohttp-apispec==2.2.1    # via -r requirements/requirements.in
-aiohttp==3.6.2            # via -r requirements/requirements.in, aiohttp-apispec
-aiomisc==10.0.8           # via -r requirements/requirements.in
-alembic==1.4.2            # via -r requirements/requirements.in
-apispec==3.3.1            # via aiohttp-apispec
-async-timeout==3.0.1      # via aiohttp
-asyncpg==0.20.1           # via asyncpgsa
-asyncpgsa==0.26.3         # via -r requirements/requirements.in
-attrs==19.3.0             # via aiohttp
-chardet==3.0.4            # via aiohttp
-colorlog==4.1.0           # via aiomisc, prettylog
-configargparse==1.2.3     # via -r requirements/requirements.in
-fast-json==0.3.2          # via prettylog
-idna==2.9                 # via yarl
-jinja2==2.11.2            # via aiohttp-apispec
-mako==1.1.3               # via alembic
-markupsafe==1.1.1         # via jinja2, mako
-marshmallow==3.6.1        # via webargs
-multidict==4.7.6          # via aiohttp, yarl
-prettylog==0.3.0          # via aiomisc
-psycopg2-binary==2.8.5    # via -r requirements/requirements.in
-python-dateutil==2.8.1    # via alembic
-python-editor==1.0.4      # via alembic
-pytz==2020.1              # via -r requirements/requirements.in
-setproctitle==1.1.10      # via -r requirements/requirements.in
-six==1.15.0               # via python-dateutil
-sqlalchemy==1.3.17        # via -r requirements/requirements.in, alembic, asyncpgsa
-ujson==2.0.3              # via fast-json
-webargs==5.5.3            # via aiohttp-apispec
-yarl==1.4.2               # via aiohttp
+aiohttp-apispec==2.2.1
+    # via -r requirements.in
+aiohttp==3.6.2
+    # via
+    #   -r requirements.in
+    #   aiohttp-apispec
+aiomisc==10.0.8
+    # via -r requirements.in
+alembic==1.4.2
+    # via -r requirements.in
+apispec==3.3.1
+    # via aiohttp-apispec
+async-timeout==3.0.1
+    # via aiohttp
+asyncpg==0.21.0
+    # via asyncpgsa
+asyncpgsa==0.26.3
+    # via -r requirements.in
+attrs==19.3.0
+    # via aiohttp
+chardet==3.0.4
+    # via aiohttp
+colorlog==4.1.0
+    # via
+    #   aiomisc
+    #   prettylog
+configargparse==1.2.3
+    # via -r requirements.in
+fast-json==0.3.2
+    # via prettylog
+idna==2.9
+    # via yarl
+jinja2==2.11.2
+    # via aiohttp-apispec
+mako==1.1.3
+    # via alembic
+markupsafe==1.1.1
+    # via
+    #   jinja2
+    #   mako
+marshmallow==3.6.1
+    # via webargs
+multidict==4.7.6
+    # via
+    #   aiohttp
+    #   yarl
+prettylog==0.3.0
+    # via aiomisc
+psycopg2-binary==2.8.5
+    # via -r requirements.in
+python-dateutil==2.8.1
+    # via alembic
+python-editor==1.0.4
+    # via alembic
+pytz==2020.1
+    # via -r requirements.in
+setproctitle==1.1.10
+    # via -r requirements.in
+six==1.15.0
+    # via python-dateutil
+sqlalchemy==1.3.17
+    # via
+    #   -r requirements.in
+    #   alembic
+    #   asyncpgsa
+ujson==2.0.3
+    # via fast-json
+webargs==5.5.3
+    # via aiohttp-apispec
+yarl==1.4.2
+    # via aiohttp
